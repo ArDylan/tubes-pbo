@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  */
 public class DatabaseConnection {
     Connection conn;
-    
+     
     public static Connection conn(){
         try{
             Class .forName("com.mysql.jdbc.Driver");
