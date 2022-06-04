@@ -93,8 +93,6 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 80, 20));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\NITRO 5\\Downloads\\Fac&Co.png")); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
 
