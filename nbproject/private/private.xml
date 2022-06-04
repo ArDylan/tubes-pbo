@@ -3,9 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/ARCHIE/OneDrive/Documents/NetBeansProjects/tubes_jasa_jahit/src/Model/Order.java</file>
             <file>file:/C:/Users/ARCHIE/OneDrive/Documents/NetBeansProjects/tubes_jasa_jahit/src/Model/Pelanggan.java</file>
             <file>file:/C:/Users/ARCHIE/OneDrive/Documents/NetBeansProjects/tubes_jasa_jahit/src/View/login.java</file>
+=======
+            <file>file:/D:/Tugas%20Kuliah/Semester%202/TubesPBO/tubes-pbo/src/View/Register.java</file>
+            <file>file:/D:/Tugas%20Kuliah/Semester%202/TubesPBO/tubes-pbo/src/View/NewJFrame.java</file>
+            <file>file:/D:/Tugas%20Kuliah/Semester%202/TubesPBO/tubes-pbo/src/View/Penjahit.java</file>
+>>>>>>> 804783bca290867679414dcba1ba569074097f44
         </group>
     </open-files>
 </project-private>
