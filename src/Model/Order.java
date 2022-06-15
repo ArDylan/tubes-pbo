@@ -132,10 +132,11 @@ public class Order implements Rating{
             String column = "user_id, penjahit_username, kategori, kuantitas, ukuran, jenis_kain, keterangan, gambar, status";
             String value = "'" + String.valueOf(id) + "', '" + penjahit + "', '" + kategori + "', '" + kuantitas + "', '" + ukuran + "', '" + jenis_kain + "', '" + keterangan + "', '" + gambar + "', '" + status + "'";
             db.query_insert("orders", column, value);
+            JOptionPane.showMessageDialog(null, "Pesanan berhasil dibuat!");
         } catch (SQLException ex) {
             Logger.getLogger(Order.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+            JOptionPane.showMessageDialog(null, "Pesanan gagal dibuat!");
+        }        
     }
     
     public void load_table(javax.swing.JTable tablePesanan) throws SQLException{
@@ -149,6 +150,7 @@ public class Order implements Rating{
 
             while(dataTable.next()){
                 setId(dataTable.getInt("orders.id"));
+                String uname_penjahit = dataTable.getString("penjahit_username");
                 setKategori(dataTable.getString("kategori"));
                 setKuantitas(dataTable.getInt("kuantitas"));
                 setUkuran(dataTable.getString("ukuran"));
@@ -156,7 +158,7 @@ public class Order implements Rating{
                 setKeterangan(dataTable.getString("keterangan"));
                 setDesign_gambar(dataTable.getString("gambar"));
                 setStatus(dataTable.getString("status"));
-                tableModel.addRow(new Object[] {getId(),getKategori(),getKuantitas(),getUkuran(),getJenis_kain(),getKeterangan(), getDesign_gambar(), getStatus()});
+                tableModel.addRow(new Object[] {getId(), uname_penjahit, getKategori(),getKuantitas(),getUkuran(),getJenis_kain(),getKeterangan(), getDesign_gambar(), getStatus()});
             }
             
         }
@@ -268,13 +270,12 @@ public class Order implements Rating{
             try {
                 DefaultTableModel tableModel = (DefaultTableModel) ranking_penjahit.getModel();
                 String data = "orders.id, users.nama, users.username, users.no_hp, users.alamat, round(AVG(rating.nilai), 2)*100 AS rank";
-                String statement = " JOIN rating ON orders.id = rating.order_id  JOIN users ON orders.penjahit_username = users.username Group By users.username;";
+                String statement = " JOIN rating ON orders.id = rating.order_id  JOIN users ON orders.penjahit_username = users.username Group By users.username ORDER BY rank DESC;";
                 ResultSet dataTable = db.query_select(" orders ", data, statement);
         
                 tableModel.setRowCount(0);
 
                 while(dataTable.next()){
-                    int id  = dataTable.getInt("orders.id");
                     String name = dataTable.getString("users.nama");
                     String username = dataTable.getString("users.username");                
                     String no_hp = dataTable.getString("users.no_hp");
@@ -282,7 +283,7 @@ public class Order implements Rating{
                     String rating = dataTable.getString("rank") + "%";
 
 
-                    tableModel.addRow(new Object[] {id, name, username, no_hp, alamat, rating});
+                    tableModel.addRow(new Object[] {name, username, no_hp, alamat, rating});
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(Order.class.getName()).log(Level.SEVERE, null, ex);

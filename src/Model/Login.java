@@ -18,12 +18,6 @@ public abstract class Login {
     private String password;
     DatabaseConnection db;
 
-
-//    public Login(String username, String password){
-//	this.username = username;
-//	this.password = password;
-//    }
-
     public void setUsername(String username){
         this.username = username;
     }
@@ -40,7 +34,8 @@ public abstract class Login {
         return this.password;
     }
     
+    public abstract String cek(String auth);
     public abstract String cek(String username, String password);
-    
+   
     public abstract void run(String auth);
 }

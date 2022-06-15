@@ -78,6 +78,7 @@ public class Detail_Penjahit extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(253, 242, 200));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("DESKRIPSI :");
@@ -127,7 +128,9 @@ public class Detail_Penjahit extends javax.swing.JFrame {
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 670, 70));
 
         input_deskripsi.setColumns(20);
+        input_deskripsi.setFont(new java.awt.Font("Dubai Medium", 0, 12)); // NOI18N
         input_deskripsi.setRows(5);
+        input_deskripsi.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         input_deskripsi.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 input_deskripsiPropertyChange(evt);
@@ -145,6 +148,8 @@ public class Detail_Penjahit extends javax.swing.JFrame {
         jLabel9.setText("NAMA PEMESAN :");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
+        panel2.setBackground(new java.awt.Color(253, 242, 200));
+
         jLabel3.setText("HARGA :");
 
         button_tolak.setText("Tolak");
@@ -161,8 +166,6 @@ public class Detail_Penjahit extends javax.swing.JFrame {
             }
         });
 
-        input_harga.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
-        input_harga.setName(""); // NOI18N
         input_harga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 input_hargaActionPerformed(evt);
@@ -177,28 +180,27 @@ public class Detail_Penjahit extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(input_harga))
-                    .addGroup(panel2Layout.createSequentialGroup()
-                        .addGap(0, 478, Short.MAX_VALUE)
+                        .addGap(0, 482, Short.MAX_VALUE)
                         .addComponent(button_tolak, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(button_terima, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(button_terima, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(panel2Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(input_harga, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(458, 458, 458))))
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel2Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel2Layout.createSequentialGroup()
-                        .addContainerGap(18, Short.MAX_VALUE)
-                        .addComponent(input_harga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(input_harga, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(button_terima, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(button_tolak, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -264,10 +266,6 @@ public class Detail_Penjahit extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_input_deskripsiPropertyChange
 
-    private void input_hargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_hargaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_input_hargaActionPerformed
-
     private void button_selesaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_selesaiActionPerformed
         // TODO add your handling code here:
         try {
@@ -288,6 +286,10 @@ public class Detail_Penjahit extends javax.swing.JFrame {
             Logger.getLogger(Detail_Penjahit.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_button_kembaliActionPerformed
+
+    private void input_hargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_hargaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_input_hargaActionPerformed
 
     /**
      * @param args the command line arguments
