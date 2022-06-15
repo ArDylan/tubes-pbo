@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View;
-
+import Model.Pelanggan;
+import Model.Penjahit;
 /**
  *
  * @author NITRO 5
@@ -28,25 +29,26 @@ public class Register extends javax.swing.JFrame {
 
         buttonPP = new javax.swing.ButtonGroup();
         jRadioButton1 = new javax.swing.JRadioButton();
-        Username = new javax.swing.JTextField();
-        Password = new javax.swing.JPasswordField();
-        NAMA = new javax.swing.JTextField();
-        PengisianAlamat = new javax.swing.JTextField();
-        PengisianNIK = new javax.swing.JFormattedTextField();
-        PengisianNOHP = new javax.swing.JFormattedTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        PengisianEmail = new javax.swing.JTextField();
-        Penjahit = new javax.swing.JRadioButton();
-        Pelanggan = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        input_no_hp = new javax.swing.JFormattedTextField();
+        jLabel5 = new javax.swing.JLabel();
+        input_nama = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        input_email = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        input_alamat = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        input_username = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        input_password = new javax.swing.JPasswordField();
+        rb_penjahit = new javax.swing.JRadioButton();
+        rb_pelanggan = new javax.swing.JRadioButton();
+        button_register = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        cb_gender = new javax.swing.JComboBox<>();
+        input_nik = new javax.swing.JTextField();
 
         jRadioButton1.setText("jRadioButton1");
 
@@ -55,137 +57,243 @@ public class Register extends javax.swing.JFrame {
         setType(java.awt.Window.Type.POPUP);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Username.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UsernameActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 117, -1));
-
-        Password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PasswordActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 117, -1));
-
-        NAMA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NAMAActionPerformed(evt);
-            }
-        });
-        getContentPane().add(NAMA, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 117, -1));
-
-        PengisianAlamat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PengisianAlamatActionPerformed(evt);
-            }
-        });
-        getContentPane().add(PengisianAlamat, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 117, -1));
-
-        PengisianNIK.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("+62"))));
-        getContentPane().add(PengisianNIK, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 117, -1));
-
-        PengisianNOHP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        getContentPane().add(PengisianNOHP, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 117, -1));
-
-        jLabel1.setText("Username");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 60, -1));
-
-        jLabel2.setText("Password");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 60, -1));
-
-        jLabel3.setText("Alamat");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 47, -1));
-
-        jLabel4.setText("e-mail");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 47, -1));
-
-        jLabel5.setText("Nama");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 47, -1));
+        jLabel7.setText("NIK");
 
         jLabel6.setText("Nomor HP");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 60, -1));
 
-        jLabel7.setText("NIK");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 47, -1));
+        input_no_hp.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
-        PengisianEmail.addActionListener(new java.awt.event.ActionListener() {
+        jLabel5.setText("Nama");
+
+        input_nama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PengisianEmailActionPerformed(evt);
+                input_namaActionPerformed(evt);
             }
         });
-        getContentPane().add(PengisianEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 117, -1));
 
-        buttonPP.add(Penjahit);
-        Penjahit.setText("Penjahit");
-        Penjahit.setName(""); // NOI18N
-        Penjahit.addActionListener(new java.awt.event.ActionListener() {
+        jLabel4.setText("e-mail");
+
+        input_email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PenjahitActionPerformed(evt);
+                input_emailActionPerformed(evt);
             }
         });
-        getContentPane().add(Penjahit, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, -1, -1));
 
-        buttonPP.add(Pelanggan);
-        Pelanggan.setText("Pelanggan");
-        Pelanggan.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setText("Alamat");
+
+        input_alamat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PelangganActionPerformed(evt);
+                input_alamatActionPerformed(evt);
             }
         });
-        getContentPane().add(Pelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jButton1.setText("Register");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setText("Username");
+
+        input_username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                input_usernameActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, -1, -1));
 
-        jLabel9.setBackground(new java.awt.Color(240, 226, 197));
-        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\NITRO 5\\Downloads\\Fac&Co.png")); // NOI18N
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 480));
+        jLabel2.setText("Password");
+
+        input_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_passwordActionPerformed(evt);
+            }
+        });
+
+        buttonPP.add(rb_penjahit);
+        rb_penjahit.setText("Penjahit");
+        rb_penjahit.setName(""); // NOI18N
+        rb_penjahit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rb_penjahitActionPerformed(evt);
+            }
+        });
+
+        buttonPP.add(rb_pelanggan);
+        rb_pelanggan.setText("Pelanggan");
+        rb_pelanggan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rb_pelangganActionPerformed(evt);
+            }
+        });
+
+        button_register.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        button_register.setText("Register");
+        button_register.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_registerActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Gender");
+
+        cb_gender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "laki-laki", "perempuan" }));
+        cb_gender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_genderActionPerformed(evt);
+            }
+        });
+
+        input_nik.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_nikActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(151, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(31, 31, 31)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(input_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(input_nik, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(154, 154, 154))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(input_username, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(input_no_hp, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(input_email, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(input_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addContainerGap()))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(rb_pelanggan)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(rb_penjahit))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(button_register)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(input_password, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(cb_gender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(input_nik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(input_nama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(input_username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(input_no_hp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(input_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(input_alamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(input_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_gender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rb_penjahit)
+                    .addComponent(rb_pelanggan))
+                .addGap(18, 18, 18)
+                .addComponent(button_register)
+                .addGap(45, 45, 45))
+        );
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameActionPerformed
+    private void input_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_usernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UsernameActionPerformed
+    }//GEN-LAST:event_input_usernameActionPerformed
 
-    private void NAMAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NAMAActionPerformed
+    private void input_namaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_namaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_NAMAActionPerformed
+    }//GEN-LAST:event_input_namaActionPerformed
 
-    private void PengisianAlamatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PengisianAlamatActionPerformed
+    private void input_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_emailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PengisianAlamatActionPerformed
+    }//GEN-LAST:event_input_emailActionPerformed
 
-    private void PengisianEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PengisianEmailActionPerformed
+    private void input_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_passwordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PengisianEmailActionPerformed
+    }//GEN-LAST:event_input_passwordActionPerformed
 
-    private void PasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordActionPerformed
+    private void rb_penjahitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_penjahitActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PasswordActionPerformed
+    }//GEN-LAST:event_rb_penjahitActionPerformed
 
-    private void PenjahitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PenjahitActionPerformed
+    private void rb_pelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rb_pelangganActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PenjahitActionPerformed
+    }//GEN-LAST:event_rb_pelangganActionPerformed
 
-    private void PelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PelangganActionPerformed
+    private void button_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_registerActionPerformed
+        Pelanggan pelanggan = new Pelanggan();        
+        Penjahit penjahit = new Penjahit();
+        String password = new String(input_password.getPassword());
+
+        if (rb_pelanggan.isSelected()) {
+            System.out.println(rb_pelanggan.getText());
+            pelanggan.register(input_nama.getText(), input_username.getText(), password, input_no_hp.getText(), input_nik.getText(), cb_gender.getSelectedItem().toString(), input_alamat.getText(), "pelanggan");
+            View_Login login = new View_Login();
+            this.setVisible(false);
+            login.setVisible(true);
+            this.dispose();
+        }else if(rb_penjahit.isSelected()){
+            penjahit.register(input_nama.getText(), input_username.getText(), password, input_no_hp.getText(), input_nik.getText(), cb_gender.getSelectedItem().toString(), input_alamat.getText(), "penjahit");
+            View_Login login = new View_Login();
+            this.setVisible(false);
+            login.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_button_registerActionPerformed
+
+    private void input_alamatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_alamatActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PelangganActionPerformed
+    }//GEN-LAST:event_input_alamatActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        NewJFrame login = new NewJFrame();
-        login.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void cb_genderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_genderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_genderActionPerformed
+
+    private void input_nikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_nikActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_input_nikActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,17 +332,16 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField NAMA;
-    private javax.swing.JPasswordField Password;
-    private javax.swing.JRadioButton Pelanggan;
-    private javax.swing.JTextField PengisianAlamat;
-    private javax.swing.JTextField PengisianEmail;
-    private javax.swing.JFormattedTextField PengisianNIK;
-    private javax.swing.JFormattedTextField PengisianNOHP;
-    private javax.swing.JRadioButton Penjahit;
-    private javax.swing.JTextField Username;
     private javax.swing.ButtonGroup buttonPP;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton button_register;
+    private javax.swing.JComboBox<String> cb_gender;
+    private javax.swing.JTextField input_alamat;
+    private javax.swing.JTextField input_email;
+    private javax.swing.JTextField input_nama;
+    private javax.swing.JTextField input_nik;
+    private javax.swing.JFormattedTextField input_no_hp;
+    private javax.swing.JPasswordField input_password;
+    private javax.swing.JTextField input_username;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -242,8 +349,10 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton rb_pelanggan;
+    private javax.swing.JRadioButton rb_penjahit;
     // End of variables declaration//GEN-END:variables
 }

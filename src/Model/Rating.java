@@ -8,23 +8,10 @@ package Model;
  *
  * @author ARCHIE
  */
-public class Rating extends Order{
-    private String pilihan;
-    private String kriteria;
-
-    public void setPilihan(String pilihan){
-        this.pilihan = pilihan;
-    }
-
-    public String getPilihan(){
-        return this.pilihan;
-    }
-
-    public void setKriteria(String kriteria){
-        this.kriteria = kriteria;
-    }
-
-    public String getKriteria(){
-        return this.kriteria;
-    }
+public interface Rating{
+    float kualitas = 0.27f;
+    float waktu = 0.27f;
+    float pelayanan = 0.27f;
+    float harga = 0.27f;
+    void penilaian(String id, String kualitas, String waktu, String pelayanan, String harga);
 }

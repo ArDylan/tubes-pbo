@@ -4,18 +4,25 @@
  */
 package Model;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import utility.DatabaseConnection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 /**
  *
  * @author ARCHIE
  */
-public class Login {
+public abstract class Login {
     private String username;
     private String password;
+    DatabaseConnection db;
 
-    public Login(String username, String password){
-	this.username = username;
-	this.password = password;
-    }
+
+//    public Login(String username, String password){
+//	this.username = username;
+//	this.password = password;
+//    }
 
     public void setUsername(String username){
         this.username = username;
@@ -33,15 +40,7 @@ public class Login {
         return this.password;
     }
     
-    public void cek(String username, String password){
-        if (this.username == username){
-            if(this.password == password){
-                System.out.println("Login Berhasil");
-            }else{
-                System.out.println("Password Salah");
-            }
-        }else{
-            System.out.println("Username Salah");
-        }
-    }
+    public abstract String cek(String username, String password);
+    
+    public abstract void run(String auth);
 }
