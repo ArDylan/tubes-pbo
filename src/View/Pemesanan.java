@@ -5,6 +5,7 @@
 package View;
 import Model.Pelanggan;
 import Model.Order;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -64,10 +65,11 @@ public class Pemesanan extends javax.swing.JFrame {
         input_gambar = new javax.swing.JTextField();
         button_logout = new javax.swing.JButton();
         button_rangking = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(520, 520));
         setPreferredSize(new java.awt.Dimension(500, 480));
-        setType(java.awt.Window.Type.UTILITY);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -95,6 +97,7 @@ public class Pemesanan extends javax.swing.JFrame {
 
         input_kuantitas.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
         input_kuantitas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        input_kuantitas.setValue(1);
         jPanel1.add(input_kuantitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 60, 30));
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
@@ -110,6 +113,7 @@ public class Pemesanan extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 60, -1));
 
         input_lingkar_badan.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        input_lingkar_badan.setText("0");
         input_lingkar_badan.setName(""); // NOI18N
         input_lingkar_badan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,6 +129,7 @@ public class Pemesanan extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 101, -1));
 
         input_lingkar_pinggang.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        input_lingkar_pinggang.setText("0");
         input_lingkar_pinggang.setName(""); // NOI18N
         input_lingkar_pinggang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,6 +139,7 @@ public class Pemesanan extends javax.swing.JFrame {
         jPanel1.add(input_lingkar_pinggang, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 101, -1));
 
         input_lebar_bahu.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        input_lebar_bahu.setText("0");
         input_lebar_bahu.setName(""); // NOI18N
         input_lebar_bahu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,6 +153,7 @@ public class Pemesanan extends javax.swing.JFrame {
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 101, -1));
 
         input_lebar_dada.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        input_lebar_dada.setText("0");
         input_lebar_dada.setName(""); // NOI18N
         input_lebar_dada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,52 +166,56 @@ public class Pemesanan extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 101, -1));
 
         jLabel7.setText("Panjang Lengan");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 101, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 101, -1));
 
         input_panjang_lengan.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        input_panjang_lengan.setText("0");
         input_panjang_lengan.setName(""); // NOI18N
         input_panjang_lengan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 input_panjang_lenganActionPerformed(evt);
             }
         });
-        jPanel1.add(input_panjang_lengan, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 101, -1));
+        jPanel1.add(input_panjang_lengan, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 101, -1));
 
         jLabel9.setText("Panjang Kaki");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 101, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 101, -1));
 
         input_panjang_kaki.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        input_panjang_kaki.setText("0");
         input_panjang_kaki.setName(""); // NOI18N
         input_panjang_kaki.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 input_panjang_kakiActionPerformed(evt);
             }
         });
-        jPanel1.add(input_panjang_kaki, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 101, -1));
+        jPanel1.add(input_panjang_kaki, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 101, -1));
 
         jLabel10.setText("Lingkar Paha");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 101, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 101, -1));
 
         input_lingkar_paha.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        input_lingkar_paha.setText("0");
         input_lingkar_paha.setName(""); // NOI18N
         input_lingkar_paha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 input_lingkar_pahaActionPerformed(evt);
             }
         });
-        jPanel1.add(input_lingkar_paha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 101, -1));
+        jPanel1.add(input_lingkar_paha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 101, -1));
 
         jLabel11.setText("Lingkar Lutut");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 101, -1));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 101, -1));
 
         input_lingkar_lutut.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        input_lingkar_lutut.setText("0");
         input_lingkar_lutut.setName(""); // NOI18N
         input_lingkar_lutut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 input_lingkar_lututActionPerformed(evt);
             }
         });
-        jPanel1.add(input_lingkar_lutut, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 101, -1));
+        jPanel1.add(input_lingkar_lutut, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 101, -1));
 
         cb_penjahit.setBackground(new java.awt.Color(153, 152, 224));
         cb_penjahit.setFont(new java.awt.Font("Century751 SeBd BT", 0, 10)); // NOI18N
@@ -226,24 +237,24 @@ public class Pemesanan extends javax.swing.JFrame {
                 button_pesanActionPerformed(evt);
             }
         });
-        jPanel1.add(button_pesan, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 130, 30));
+        jPanel1.add(button_pesan, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, 130, 30));
 
         button_riwayat.setBackground(new java.awt.Color(195, 195, 164));
         button_riwayat.setFont(new java.awt.Font("Microsoft YaHei", 0, 12)); // NOI18N
         button_riwayat.setForeground(new java.awt.Color(51, 51, 51));
         button_riwayat.setText("Riwayat Pesanan");
-        button_riwayat.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.gray, java.awt.Color.darkGray, java.awt.Color.gray));
+        button_riwayat.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         button_riwayat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_riwayatActionPerformed(evt);
             }
         });
-        jPanel1.add(button_riwayat, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 110, 30));
+        jPanel1.add(button_riwayat, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 110, 30));
 
         cb_jenis_kain.setBackground(new java.awt.Color(153, 152, 224));
         cb_jenis_kain.setFont(new java.awt.Font("Century751 SeBd BT", 0, 10)); // NOI18N
         cb_jenis_kain.setForeground(new java.awt.Color(153, 152, 224));
-        cb_jenis_kain.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Acrylic", "Batik", "Brokat", "Chiffon", "Corduroy", "Drill", "Denim", "Flanel", "Katun", "Oxford", "Organdi", "Polyester", "Satin ", "Silk", "Sutra", "Velvet" }));
+        cb_jenis_kain.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilihan Penjahit", "Acrylic", "Batik", "Brokat", "Chiffon", "Corduroy", "Drill", "Denim", "Flanel", "Katun", "Oxford", "Organdi", "Polyester", "Satin ", "Silk", "Sutra", "Velvet" }));
         jPanel1.add(cb_jenis_kain, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 120, -1));
 
         jLabel13.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
@@ -251,8 +262,15 @@ public class Pemesanan extends javax.swing.JFrame {
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 60, -1));
 
         jLabel14.setText("LINK GAMBAR");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
-        jPanel1.add(input_gambar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, 150, -1));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, -1));
+
+        input_gambar.setText("-");
+        input_gambar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                input_gambarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(input_gambar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 150, -1));
 
         button_logout.setText("logout");
         button_logout.addActionListener(new java.awt.event.ActionListener() {
@@ -260,25 +278,30 @@ public class Pemesanan extends javax.swing.JFrame {
                 button_logoutActionPerformed(evt);
             }
         });
-        jPanel1.add(button_logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel1.add(button_logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, -1, -1));
 
+        button_rangking.setBackground(new java.awt.Color(102, 51, 0));
+        button_rangking.setForeground(new java.awt.Color(255, 255, 255));
         button_rangking.setText("Rangking Penjahit");
         button_rangking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button_rangkingActionPerformed(evt);
             }
         });
-        jPanel1.add(button_rangking, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, -1, -1));
+        jPanel1.add(button_rangking, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, -1, -1));
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Fac&Co.png"))); // NOI18N
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 500));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -329,6 +352,7 @@ public class Pemesanan extends javax.swing.JFrame {
         Order order = new Order();
         
         order.tambah_order(auth, cb_penjahit.getSelectedItem().toString(), cb_kategori.getSelectedItem().toString(), (int) input_kuantitas.getValue(), cb_ukuran.getSelectedItem().toString(), cb_jenis_kain.getSelectedItem().toString(), deskripsi, input_gambar.getText(), "pending");
+
     }//GEN-LAST:event_button_pesanActionPerformed
 
     private void button_riwayatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_riwayatActionPerformed
@@ -348,6 +372,10 @@ public class Pemesanan extends javax.swing.JFrame {
         this.setVisible(false);
         new Ranking_Penjahit(auth).setVisible(true);
     }//GEN-LAST:event_button_rangkingActionPerformed
+
+    private void input_gambarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_gambarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_input_gambarActionPerformed
     
     /**
      * @param args the command line arguments
@@ -409,6 +437,7 @@ public class Pemesanan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

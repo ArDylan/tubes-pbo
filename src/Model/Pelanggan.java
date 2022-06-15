@@ -112,10 +112,9 @@ public class Pelanggan extends Login {
     }
     
     @Override
-    public String cek(String username, String password){
+    public String cek(String auth){
         try {
-            String statement = "WHERE username = '" + username + "' AND password = '" + password + "'";
-            ResultSet login = db.query_select("users", statement);
+            ResultSet login = db.query_filter("users", "username", auth);
             while (login.next()){
                 return login.getString("role");
             }
@@ -124,6 +123,21 @@ public class Pelanggan extends Login {
         }
         return null;
     }
+    
+    @Override
+    public String cek(String username, String password){
+        try {
+            String statement = " WHERE username = '" + username + "' AND password = '" + password + "'";
+            ResultSet login = db.query_select("users", statement);
+            while (login.next()){
+                return login.getString("role");
+            }
+        } catch (java.sql.SQLException ex) {
+            Logger.getLogger(Pelanggan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            JOptionPane.showMessageDialog(null, "Username atau password salah!");
+        return null;
+    }   
     
     @Override
     public void run(String auth){

@@ -46,11 +46,15 @@ public class Beranda_Penjahit extends javax.swing.JFrame {
         button_detail = new javax.swing.JButton();
         cb_pelanggan = new javax.swing.JComboBox<>();
         button_logout = new javax.swing.JButton();
+        button_rangking = new javax.swing.JButton();
+        button_riwayat = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(253, 242, 200));
 
+        jPanel1.setBackground(new java.awt.Color(253, 242, 200));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tabel_pemesan.setModel(new javax.swing.table.DefaultTableModel(
@@ -79,9 +83,12 @@ public class Beranda_Penjahit extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabel_pemesan.setToolTipText("");
+        tabel_pemesan.setGridColor(new java.awt.Color(0, 0, 0));
+        tabel_pemesan.setShowGrid(true);
         jScrollPane1.setViewportView(tabel_pemesan);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 450, 170));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 450, 170));
 
         button_detail.setText("Detail");
         button_detail.addActionListener(new java.awt.event.ActionListener() {
@@ -89,13 +96,13 @@ public class Beranda_Penjahit extends javax.swing.JFrame {
                 button_detailActionPerformed(evt);
             }
         });
-        jPanel1.add(button_detail, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, -1, -1));
+        jPanel1.add(button_detail, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, -1, -1));
 
         cb_pelanggan.setBackground(new java.awt.Color(153, 152, 224));
         cb_pelanggan.setFont(new java.awt.Font("Century751 SeBd BT", 0, 10)); // NOI18N
         cb_pelanggan.setForeground(new java.awt.Color(153, 152, 224));
         cb_pelanggan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
-        jPanel1.add(cb_pelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 120, -1));
+        jPanel1.add(cb_pelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 120, -1));
 
         button_logout.setText("logout");
         button_logout.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +110,27 @@ public class Beranda_Penjahit extends javax.swing.JFrame {
                 button_logoutActionPerformed(evt);
             }
         });
-        jPanel1.add(button_logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jPanel1.add(button_logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, -1, -1));
+
+        button_rangking.setBackground(new java.awt.Color(102, 51, 0));
+        button_rangking.setForeground(new java.awt.Color(255, 255, 255));
+        button_rangking.setText("Rangking");
+        button_rangking.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_rangkingActionPerformed(evt);
+            }
+        });
+        jPanel1.add(button_rangking, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, -1));
+
+        button_riwayat.setBackground(new java.awt.Color(102, 51, 0));
+        button_riwayat.setForeground(new java.awt.Color(255, 255, 255));
+        button_riwayat.setText("Riwayat");
+        button_riwayat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_riwayatActionPerformed(evt);
+            }
+        });
+        jPanel1.add(button_riwayat, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -113,7 +140,7 @@ public class Beranda_Penjahit extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -133,6 +160,21 @@ public class Beranda_Penjahit extends javax.swing.JFrame {
         this.setVisible(false);
         new View_Login().setVisible(true);
     }//GEN-LAST:event_button_logoutActionPerformed
+
+    private void button_rangkingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_rangkingActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new Ranking_Penjahit(auth).setVisible(true);
+    }//GEN-LAST:event_button_rangkingActionPerformed
+
+    private void button_riwayatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_riwayatActionPerformed
+        try {
+           this.setVisible(false);
+            new Riwayat_Penjahit(auth).setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Beranda_Penjahit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_button_riwayatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,6 +218,8 @@ public class Beranda_Penjahit extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton button_detail;
     private javax.swing.JButton button_logout;
+    private javax.swing.JButton button_rangking;
+    private javax.swing.JButton button_riwayat;
     private javax.swing.JComboBox<String> cb_pelanggan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

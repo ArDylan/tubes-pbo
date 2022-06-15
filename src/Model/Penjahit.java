@@ -119,11 +119,25 @@ public class Penjahit extends Login {
         return this.alamat;
     }
     
-        
+    
+    @Override
+    public String cek(String auth){
+        try {
+            ResultSet login = db.query_filter("users", "username", auth);
+            while (login.next()){
+                return login.getString("role");
+            }
+        } catch (java.sql.SQLException ex) {
+            Logger.getLogger(Pelanggan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    
     @Override
     public String cek(String username, String password){
         try {
-            String statement = "WHERE username = '" + username + "' AND password = '" + password + "'";
+            String statement = " WHERE username = '" + username + "' AND password = '" + password + "'";
             ResultSet login = db.query_select("users", statement);
             while (login.next()){
                 return login.getString("role");
@@ -131,6 +145,7 @@ public class Penjahit extends Login {
         } catch (java.sql.SQLException ex) {
             Logger.getLogger(Pelanggan.class.getName()).log(Level.SEVERE, null, ex);
         }
+            JOptionPane.showMessageDialog(null, "Username atau password salah!");
         return null;
     }
     
@@ -171,6 +186,28 @@ public class Penjahit extends Login {
         }
     }
     
+     public String[] show_riwayat_detail(){
+        try{
+            ResultSet data_penjahit = db.query_filter("orders", "penjahit_username", getAuth());
+            ArrayList<String> pelanggan = new ArrayList<String>();
+            while(data_penjahit.next()){
+                if (data_penjahit.getString("status").equals("selesai") || data_penjahit.getString("status").equals("dibatalkan") ){
+                    pelanggan.add(String.valueOf(data_penjahit.getInt("id")));
+                }
+            }
+            
+            String array[] = new String[pelanggan.size()];
+            for(int j =0;j<pelanggan.size();j++){
+		 array[j] = pelanggan.get(j);
+            }
+            return array;
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+            return null;
+        }
+    }
+    
     public void load_table(javax.swing.JTable tablePesanan) throws SQLException{
         try{
             DefaultTableModel tableModel = (DefaultTableModel) tablePesanan.getModel();
@@ -180,13 +217,41 @@ public class Penjahit extends Login {
             tableModel.setRowCount(0);
 
             while(dataTable.next()){
-                int id = dataTable.getInt("orders.id");
-                setUsername(dataTable.getString("username"));               
-                setNama(dataTable.getString("nama"));                
-                order.setKategori(dataTable.getString("kategori"));
-                order.setStatus(dataTable.getString("status"));
+                if(!dataTable.getString("status").equals("selesai") && !dataTable.getString("status").equals("dibatalkan")){
+                    int id = dataTable.getInt("orders.id");
+                    setUsername(dataTable.getString("username"));               
+                    setNama(dataTable.getString("nama"));                
+                    order.setKategori(dataTable.getString("kategori"));
+                    order.setStatus(dataTable.getString("status"));
 
-                tableModel.addRow(new Object[] {id, getUsername(), getNama(), order.getKategori(), order.getStatus()});
+                    tableModel.addRow(new Object[] {id, getUsername(), getNama(), order.getKategori(), order.getStatus()});
+                }
+            }
+            
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
+      public void riwayat_table(javax.swing.JTable tablePesanan) throws SQLException{
+        try{
+            DefaultTableModel tableModel = (DefaultTableModel) tablePesanan.getModel();
+            String join = " JOIN users ON orders.user_id = users.id ";
+            ResultSet dataTable = db.query_filter(" orders ", "penjahit_username", getAuth(), join);
+
+            tableModel.setRowCount(0);
+
+            while(dataTable.next()){
+                if (dataTable.getString("status").equals("selesai") || dataTable.getString("status").equals("dibatalkan") ){
+                    int id = dataTable.getInt("orders.id");
+                    setUsername(dataTable.getString("username"));               
+                    setNama(dataTable.getString("nama"));                
+                    order.setKategori(dataTable.getString("kategori"));
+                    order.setStatus(dataTable.getString("status"));
+
+                    tableModel.addRow(new Object[] {id, getUsername(), getNama(), order.getKategori(), order.getStatus()});
+                }
             }
             
         }

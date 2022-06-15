@@ -72,7 +72,7 @@ public class DatabaseConnection {
     public ResultSet query_filter(String table, String column, String option, String join){
         try{
             Statement stm = conn().createStatement();
-            result = stm.executeQuery("SELECT * FROM " + table + join + " WHERE " + column + " = '" + option + "'");
+            result = stm.executeQuery("SELECT * FROM " + table + join + " WHERE " + column + " = '" + option + "' ORDER BY " + table + ".id DESC");
         } catch (SQLException ex) {
             Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -109,13 +109,4 @@ public class DatabaseConnection {
         }
     }
     
-    public void query_delete(String table, String head, String value){
-        try{
-            query = ("INSERT INTO "+ table + "("+ head +") values" + " ("+ value +") ");    
-            pst = conn().prepareStatement(query);
-            pst.execute();
-        } catch (SQLException ex) {
-            Logger.getLogger(DatabaseConnection.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
 }
