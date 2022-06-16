@@ -3,21 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ARCHIE/OneDrive/Documents/NetBeansProjects/tubes_jasa_jahit/src/Model/Order.java</file>
-            <file>file:/C:/Users/ARCHIE/OneDrive/Documents/NetBeansProjects/tubes_jasa_jahit/src/View/Detail_Pesanan.java</file>
-            <file>file:/C:/Users/ARCHIE/OneDrive/Documents/NetBeansProjects/tubes_jasa_jahit/src/View/Beranda_Penjahit.java</file>
-            <file>file:/C:/Users/ARCHIE/OneDrive/Documents/NetBeansProjects/tubes_jasa_jahit/src/View/Ranking_Penjahit.java</file>
+            <file>file:/C:/Users/ARCHIE/OneDrive/Documents/NetBeansProjects/tubes_jasa_jahit/src/Model/Pelanggan.java</file>
+            <file>file:/C:/Users/ARCHIE/OneDrive/Documents/NetBeansProjects/tubes_jasa_jahit/src/View/View_Login.java</file>
             <file>file:/C:/Users/ARCHIE/OneDrive/Documents/NetBeansProjects/tubes_jasa_jahit/src/Model/Rating.java</file>
             <file>file:/C:/Users/ARCHIE/OneDrive/Documents/NetBeansProjects/tubes_jasa_jahit/src/Model/Login.java</file>
             <file>file:/C:/Users/ARCHIE/OneDrive/Documents/NetBeansProjects/tubes_jasa_jahit/src/Model/Penjahit.java</file>
-            <file>file:/C:/Users/ARCHIE/OneDrive/Documents/NetBeansProjects/tubes_jasa_jahit/src/View/Detail_Penjahit.java</file>
-            <file>file:/C:/Users/ARCHIE/OneDrive/Documents/NetBeansProjects/tubes_jasa_jahit/src/utility/DatabaseConnection.java</file>
-            <file>file:/C:/Users/ARCHIE/OneDrive/Documents/NetBeansProjects/tubes_jasa_jahit/src/View/Register.java</file>
-            <file>file:/C:/Users/ARCHIE/OneDrive/Documents/NetBeansProjects/tubes_jasa_jahit/src/Model/Pelanggan.java</file>
-            <file>file:/C:/Users/ARCHIE/OneDrive/Documents/NetBeansProjects/tubes_jasa_jahit/src/View/RiwayatPesanan.java</file>
-            <file>file:/C:/Users/ARCHIE/OneDrive/Documents/NetBeansProjects/tubes_jasa_jahit/src/View/View_Login.java</file>
-            <file>file:/C:/Users/ARCHIE/OneDrive/Documents/NetBeansProjects/tubes_jasa_jahit/src/View/Pemesanan.java</file>
-            <file>file:/C:/Users/ARCHIE/OneDrive/Documents/NetBeansProjects/tubes_jasa_jahit/src/View/login_admin.java</file>
         </group>
     </open-files>
 </project-private>
